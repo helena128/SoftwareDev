@@ -1,0 +1,78 @@
+/* inheritance */
+BODY {
+        font-family: monospace;
+        color: black;
+        font-size: 12pt;
+        /*background: #ffe5cc;*/
+}
+
+/* id selector */
+#graphic {
+        color: red;
+        background: #f0f0f0;
+}
+
+/* name, surname */
+h1 {
+        color: #000099;
+        font-family: cursive;
+        font-size: 16pt;
+}
+/* group and variant of labwork */
+/* selector of descendant */
+h1 > div {
+        font-size: 14pt;
+        font-weight: normal;
+        font-style: italic;
+}
+
+/* pseudoclass selecters */
+INPUT:focus {
+        background: #cce5ff;
+        color: #99004c;
+        font-style: italic;
+}
+/* INPUT:required */
+/* atribute selectors REDO: DOESN'T WORK*/
+td[type="text"] {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        font-size: 14pt;
+        font-style: normal;
+        color: #000099 !important ; /* cascading */
+        font-weight: normal !important; /* cascading */
+        background: #fff5e9; /* is not stated as important !!! */
+}
+
+td[colspan="2"]{
+        background: #f0f0f0 !important;
+        /*font-weight: normal !important; /* cascading */
+        color: #000099;
+}
+
+th {
+        font-weight: normal !important;
+}
+
+.ask_input {
+        /* text-align: left; */
+        /*padding: 5%;*/
+        padding: 1%;
+        height: 14pt;
+        width: 25pt;
+}
+
+#x {
+        padding: 1%;
+        margin: 1%;
+        /* height: 20pt;
+        width: 25pt; */
+        font-size: 14pt;
+}
+
+#button {
+        /*margin: 1%;*/
+        background: #99ccff;
+        /*padding:10px;*/
+        height: 25pt;
+        width: 40pt;
+}
