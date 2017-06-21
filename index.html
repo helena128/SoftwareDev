@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--head-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta content="utf-8" http-equiv="encoding">
+<head>
+        <title>Лабораторная работа №6</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+
+<body>
+
+<form action="index1.php" onsubmit="return valFunc()" method="get" enctype="application/x-www-form-urlencoded">
+
+        <h1>Чепрасова Елена
+                <div>гр. Р3202, вар. 4012</div>
+        </h1>
+        <!-- OUR TABLE -->
+        <table border = "1">
+
+                <!-- DISPLAYING GRAPHIC -->
+                <tr>
+                        <td type="text" align="center" id="graphic">График:</td>
+                        <!--id selector used-->
+                </tr>
+                
+                <tr>
+                        <td align="center" >
+                                <img src="graphic.png">
+                        </td>
+                </tr>
+
+                <!--VALUES-->
+                <tr>
+                        <td align="center" type="text">Начальные данные:</td>
+                </tr>
+
+                <tr>
+                        <!--SELECT X-->
+                        <td align="left">
+                        Значение Х:
+                        <!--select name="x" required-->
+                        <select required id="x" name="x">
+                                <option value="-4">-4</option>
+                                <option value="-3">-3</option>
+                                <option value="-2">-2</option>
+                                <option value="-1">-1</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                        </select>
+
+                        <br/>
+                        <br/>
+                        <!--Select Y-->
+                        Значение Y:
+                        <!--input required name = "y" type="number" min="-5"
+                        max="5" class="ask_input" -->
+                        <input required id = "y" name="y" type="text" class="ask_input">
+                        <br/>
+                        <br/>
+                        <!-- Select Rad -->
+                        Значение R:
+                        <input required type = "radio"
+                                name = "radVal"
+                                id = "rad1"
+                                value = "1" />1
+                        
+                        <input type = "radio"
+                                name = "radVal"
+                                id = "rad2"
+                                value = "2" />2
+
+                        <input type = "radio"
+                                name = "radVal"
+                                id = "rad3"
+                                value = "3" />3
+
+                        <input type = "radio"
+                                name = "radVal"
+                                id = "rad4"
+                                value = "4" />4
+
+                        <input type = "radio"
+                                name = "radVal"
+                                id = "rad5"
+                                value = "5" />5
+                </tr>
+        
+                <tr>
+                        <td align="center">
+                                <br>
+                                <!--button type = "submit" name = "submit" id="button">ОК</button-->
+                                <button type = "submit" id="button" align="center">OK</button>
+                                
+                        </td>
+                </tr>
+        </table>
+        <div id="err-msg" style="color:red;"></div>     
+        <!-- JAVASCRIPT VALIDATION -->
+        <script>
+                function valFunc() {
+                        var y = document.getElementById("y").value;
+                                        
+                        y = y.replace(/,/g, ".");
+                        var re = /\s*;\s*/;
+                        var x = y.split(re);
+                                        
+                        // If y is not a number in range [-5..5]
+                        /*                
+                        for (var i = 0; i < x.length; i++){
+                                
+                        //alert(x[i]);
+                                x[i] = parseFloat(x[i]);
+                                if (isNaN(x[i]) || (x[i] < -5) || (x[i] > 5) ){
+                                        //alert(">" + x[i] + "<");
+                                        document.getElementById('err-msg').innerHTML="Введите значения (-5..5) в окно выбора Y, разделив ';'";
+                                        //alert("Число не из диапазона [-5; 5]!");
+                                        return false;
+                                }
+                                                
+                                /*if (x[i].includes(".")  && decimalPlaces(x[i]) > 10/*&& Math.abs(x[i] - parseInt(x[i])) < 0.0000000000000001 &&
+                                        Math.abs(x[i] - parseInt(x[i])) !== 0 &&){
+                                        //alert("Слишком точное число!");
+                                        /*document.getElementById('err-msg').innerHTML="Число должно содержать не более 10 знаков после запятой!";
+                                        return false;
+                                }
+                        }*/
+                        
+                        for (var i = 0; i < x.length; i++){
+                                                        // alert(x[i]);
+                                                        x[i] = parseInt(x[i]);
+                                                        //alert(x[i]);
+                                                if (isNaN(x[i]) || x[i] <= -5 || x[i] >= 5 ){
+                                                        document.getElementById('err-msg').innerHTML="Введите значения (-5..5) в окно выбора Y, разделив ';'";
+                                                        //alert("MISTAKE!");
+                                                        return false;
+                                                }
+                        }
+
+                        
+                        function decimalPlaces(num) {
+                                var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+                                if (!match) { return 0; }
+                                return Math.max(
+                               0,
+                               // Number of digits right of decimal point.
+                               (match[1] ? match[1].length : 0)
+                               // Adjust for scientific notation.
+                               - (match[2] ? +match[2] : 0));
+                        }
+                                        
+                }
+        </script>
+</form>
+</body>
+</html>
